@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Studies</title>
+  <style>
+  
+
+    h2 {
+      margin-bottom: 1em;
+    margin-top: 1em;
+    text-align: center;
+    width: 100%;
+    font-size: 3em;
+    COLOR: #aca8a8;
+    }
+
+    .case-studies {
+      width: 100%;
+      max-width: 1200px;
+      
+    }
+
+    .case-studies-cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .case-studies-card {
+      background: linear-gradient(135deg, #fbf935d9, #0b0b0b);
+      border-radius: 20px;
+      overflow: hidden;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-header {
+      width: 100%;
+      height: 200px;
+      
+    }
+
+    .play-video-button {
+      background-color: #FFC64B;
+      border: none;
+      color: #004d40;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      margin: 15px 0;
+    }
+
+    .play-video-button:hover {
+      background-color: #000;
+    }
+
+    .card-title img {
+      width: 50%;
+      margin: 10px auto;
+    }
+
+    .card-text {
+      padding: 1em;
+      font-size: 1em;
+      color: #000;
+    }
+
+    .video-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .video-popup.active {
+      display: flex;
+    }
+
+    .video-container {
+      position: relative;
+      width: 80%;
+      max-width: 700px;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 400px;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #ff0000;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .close-button:hover {
+      background: #cc0000;
+    }
+    .case-studies{
+      
+      background-image: linear-gradient(200deg, rgba(213, 213, 213, 0.01) 0%, rgba(213, 213, 213, 0.01) 14.286%,rgba(140, 140, 140, 0.01) 14.286%, rgba(140, 140, 140, 0.01) 28.572%,rgba(52, 52, 52, 0.01) 28.572%, rgba(52, 52, 52, 0.01) 42.858%,rgba(38, 38, 38, 0.01) 42.858%, rgba(38, 38, 38, 0.01) 57.144%,rgba(159, 159, 159, 0.01) 57.144%, rgba(159, 159, 159, 0.01) 71.42999999999999%,rgba(71, 71, 71, 0.01) 71.43%, rgba(71, 71, 71, 0.01) 85.71600000000001%,rgba(88, 88, 88, 0.01) 85.716%, rgba(88, 88, 88, 0.01) 100.002%),linear-gradient(337deg, rgba(25, 25, 25, 0.01) 0%, rgba(25, 25, 25, 0.01) 12.5%,rgba(150, 150, 150, 0.01) 12.5%, rgba(150, 150, 150, 0.01) 25%,rgba(84, 84, 84, 0.01) 25%, rgba(84, 84, 84, 0.01) 37.5%,rgba(85, 85, 85, 0.01) 37.5%, rgba(85, 85, 85, 0.01) 50%,rgba(188, 188, 188, 0.01) 50%, rgba(188, 188, 188, 0.01) 62.5%,rgba(80, 80, 80, 0.01) 62.5%, rgba(80, 80, 80, 0.01) 75%,rgba(73, 73, 73, 0.01) 75%, rgba(73, 73, 73, 0.01) 87.5%,rgba(219, 219, 219, 0.01) 87.5%, rgba(219, 219, 219, 0.01) 100%),linear-gradient(203deg, rgba(233, 233, 233, 0.01) 0%, rgba(233, 233, 233, 0.01) 25%,rgba(114, 114, 114, 0.01) 25%, rgba(114, 114, 114, 0.01) 50%,rgba(164, 164, 164, 0.01) 50%, rgba(164, 164, 164, 0.01) 75%,rgba(228, 228, 228, 0.01) 75%, rgba(228, 228, 228, 0.01) 100%),linear-gradient(317deg, rgba(139, 139, 139, 0.02) 0%, rgba(139, 139, 139, 0.02) 16.667%,rgba(44, 44, 44, 0.02) 16.667%, rgba(44, 44, 44, 0.02) 33.334%,rgba(166, 166, 166, 0.02) 33.334%, rgba(166, 166, 166, 0.02) 50.001000000000005%,rgba(2, 2, 2, 0.02) 50.001%, rgba(2, 2, 2, 0.02) 66.668%,rgba(23, 23, 23, 0.02) 66.668%, rgba(23, 23, 23, 0.02) 83.33500000000001%,rgba(21, 21, 21, 0.02) 83.335%, rgba(21, 21, 21, 0.02) 100.002%),linear-gradient(328deg, rgba(3, 3, 3, 0.03) 0%, rgba(3, 3, 3, 0.03) 12.5%,rgba(116, 116, 116, 0.03) 12.5%, rgba(116, 116, 116, 0.03) 25%,rgba(214, 214, 214, 0.03) 25%, rgba(214, 214, 214, 0.03) 37.5%,rgba(217, 217, 217, 0.03) 37.5%, rgba(217, 217, 217, 0.03) 50%,rgba(68, 68, 68, 0.03) 50%, rgba(68, 68, 68, 0.03) 62.5%,rgba(118, 118, 118, 0.03) 62.5%, rgba(118, 118, 118, 0.03) 75%,rgba(200, 200, 200, 0.03) 75%, rgba(200, 200, 200, 0.03) 87.5%,rgba(198, 198, 198, 0.03) 87.5%, rgba(198, 198, 198, 0.03) 100%),linear-gradient(97deg, rgba(195, 195, 195, 0.03) 0%, rgba(195, 195, 195, 0.03) 16.667%,rgba(177, 177, 177, 0.03) 16.667%, rgba(177, 177, 177, 0.03) 33.334%,rgba(170, 170, 170, 0.03) 33.334%, rgba(170, 170, 170, 0.03) 50.001000000000005%,rgba(158, 158, 158, 0.03) 50.001%, rgba(158, 158, 158, 0.03) 66.668%,rgba(121, 121, 121, 0.03) 66.668%, rgba(121, 121, 121, 0.03) 83.33500000000001%,rgba(146, 146, 146, 0.03) 83.335%, rgba(146, 146, 146, 0.03) 100.002%),linear-gradient(268deg, rgba(103, 103, 103, 0.03) 0%, rgba(103, 103, 103, 0.03) 25%,rgba(112, 112, 112, 0.03) 25%, rgba(112, 112, 112, 0.03) 50%,rgba(4, 4, 4, 0.03) 50%, rgba(4, 4, 4, 0.03) 75%,rgba(227, 227, 227, 0.03) 75%, rgba(227, 227, 227, 0.03) 100%),linear-gradient(90deg, hsl(98,0%,0%),hsl(98,0%,0%));
+    }
+.case-studies-cards{
+  padding-bottom: 2em;
+  padding-top: 1em;
+}
+.csmc{
+  color: #aca8a8;
+  width: 79%;
+}
+
+   
+  </style>
+</head>
+<body>
+ 
+  <section class="case-studies">
+    <h2>SURFACE MINING & CONSTRUCTION</h2>
+    <div class="case-studies-cards">
+      <!-- Card 1 -->
+      <div class="case-studies-card">
+        <img class="card-header" src="static/img/mincon.WEBP" alt="Thumbnail 1">
+        <button class="play-video-button" data-video="https://www.youtube.com/embed/lxIsW4If7pM">
+          Play Video
+        </button>
+        
+        <p class="card-text">
+          Connects all lines of business across Sun Life's API ecosystem, driving cost reductions, collaboration, and API revenue.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="case-studies-card">
+        <img class="card-header" src="static/img/mincon.WEBP" alt="Thumbnail 2">
+        <button class="play-video-button" data-video="https://www.youtube.com/embed/lxIsW4If7pM">
+          Play Video
+        </button>
+       
+        <p class="card-text">
+          Creates an open and secure ecosystem for sharing APIs and data. Drives standards across the entire airline industry.
+        </p>
+      </div>
+      <p class="csmc">MC Tools LLC, has been a provider of high quality tools for years. Ultimately, we have decided to reach out directly to customers and pass the savings on to them. We understand the importance of having the right tools to get the job done safely and efficiently. Our team of experts works tirelessly to design and manufacture innovative mining tools that are reliable and cost effective.</p>
+    </div>
+     <!--Key Industries module start-->
+ <div class="key-industries-module">
+    <div class="kim-image-bg">
+      <div class="kim-bg1" style="background-image: url(static/img/SPARE-PARTS.png);"></div>
+      <div class="kim-bg2" style="background-image: url(static/img/ACCEESSORIES.png);"></div>
+    </div>
+    <div class="inner-wrap">
+      <div class="kim-content-wrap">
+      <h2 class="kim-header">Parts & Accessories</h2>
+      <ul class="kim-link">
+        <li><a href="#" rel="kim-bg1">SPARE PARTS</a></li>
+        <li><a href="#" rel="kim-bg2">ACCEESSORIES</a></li>
+      </ul>
+      <a href="#" class="kim-cta btn-alt">View All Parts & Accessories</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Popup Video -->
+  <div class="video-popup" id="videoPopup">
+    <div class="video-container">
+      <button class="close-button">&times;</button>
+      <iframe src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  
+
+<!--Key Industries module end-->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const playButtons = document.querySelectorAll(".play-video-button");
+      const videoPopup = document.getElementById("videoPopup");
+      const iframe = videoPopup.querySelector("iframe");
+      const closeButton = videoPopup.querySelector(".close-button");
+
+      playButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const videoUrl = button.getAttribute("data-video");
+          iframe.src = videoUrl;
+          videoPopup.classList.add("active");
+        });
+      });
+
+      closeButton.addEventListener("click", () => {
+        iframe.src = ""; // Stop the video
+        videoPopup.classList.remove("active");
+      });
+
+      // Close popup when clicking outside the container
+      videoPopup.addEventListener("click", (e) => {
+        if (e.target === videoPopup) {
+          iframe.src = ""; // Stop the video
+          videoPopup.classList.remove("active");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

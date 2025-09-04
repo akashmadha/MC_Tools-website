@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .wrapper {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .boxes {
+            display: flex;
+            position: relative;
+        }
+
+        .box {
+            width: 450px;
+            height: 276px;
+            flex-shrink: 0;
+            margin-right: 10px;
+        }
+
+        .box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="boxes">
+            <div class="box"><img src="static/img/Accessories-1.jpg" alt="Image 1"></div>
+            <div class="box"><img src="static/img/Accessories-2.png" alt="Image 2"></div>
+            <div class="box"><img src="static/img/Accessories-3.jpg" alt="Image 3"></div>
+            <div class="box"><img src="static/img/Accessories-4.jpg" alt="Image 4"></div>
+            <div class="box"><img src="static/img/Accessories-1.jpg" alt="Image 5"></div>
+            <div class="box"><img src="static/img/Accessories-1.jpg" alt="Image 1"></div>
+            <div class="box"><img src="static/img/Accessories-2.png" alt="Image 2"></div>
+            <div class="box"><img src="static/img/Accessories-3.jpg" alt="Image 3"></div>
+            <div class="box"><img src="static/img/Accessories-4.jpg" alt="Image 4"></div>
+            <div class="box"><img src="static/img/Accessories-1.jpg" alt="Image 5"></div>
+        </div>
+    </div>
+<div>
+    <img src="static/img/footermc.png" alt="">
+</div>
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+        // Animate continuous sliding
+        function continuousSlide() {
+            const boxes = document.querySelector(".boxes");
+            const boxWidth = 210; // Box width (200px + 10px margin)
+
+            // Clone boxes for seamless looping
+            const totalWidth = boxes.offsetWidth;
+            const clones = Math.ceil(window.innerWidth / totalWidth) + 1;
+
+            for (let i = 0; i < clones; i++) {
+                boxes.appendChild(boxes.children[i].cloneNode(true));
+            }
+
+            // Animate sliding
+            gsap.to(".boxes", {
+                duration: 15, // Adjust duration for speed
+                repeat: -1, // Infinite repeat
+                ease: "linear",
+                x: `-${totalWidth}px`,
+                onComplete: () => {
+                    boxes.style.transform = "translateX(0)";
+                    continuousSlide(); // Restart animation
+                }
+               
+            });
+        }
+
+        continuousSlide();
+    </script>
+   
+</body>
+</html>

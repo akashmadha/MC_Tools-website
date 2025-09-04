@@ -1,0 +1,19 @@
+/* Improve table layout and button styles */
+.inline-related th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+button.add-row {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 5px 0;
+    border-radius: 4px;
+}
+
+button.add-row:hover {
+    background-color: #45a049;
+}

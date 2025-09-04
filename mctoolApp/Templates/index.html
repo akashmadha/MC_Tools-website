@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <title>HOME PAge</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <!--[if lt IE 9]>
+      <script src="js/vendor/respond.min.js"></script> <script src="js/vendor/selectivizr-min.js"></script>
+  <![endif]-->
+  
+  <script src="{% static 'js/vendor/modernizr.min.js' %}"></script>
+</head>
+
+<body>
+  <a href="javascript:void(0)" class="btn-alt" id="skipToContent">Skip to Content</a>  
+  <!--[if lt IE 9]>
+      <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+  <![endif]-->
+  <div class="site-wrap">
+    <!--Site Search -->
+    <div class="search-module">
+      <div class="inner-wrap">        
+        <form action="/" method="get" class="search-form">
+          <div class="search-table">
+            <div class="search-row">
+              <div class="search-cell1">
+                <input type="text" id="search-site" value="" placeholder="Search Website..." name="s" class="search-text" title="Search Website..." tabindex="-1" aria-label="Search Website...">
+              </div>
+              <div class="search-cell2">
+                <input class="search-submit" alt="Search" title="Search" value="" type="submit" tabindex="-1" aria-label="Search">
+              </div>
+              <div class="search-cell3">
+                <a href="javascript:void(0)" target="_blank" class="search-link search-exit active" tabindex="-1" aria-label="Close Search Module"><img src="img/ico-exit.svg" alt="Exit" ></a>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!--Site Header-->
+    <div class="site-header-wrap">
+      <header class="site-header" role="banner">
+        <div class="sh-sticky-wrap">
+        <div class="inner-wrap">
+          <div class="sh-utility-nav-wrap clearfix">
+              <div class="shnw-utility-nav">
+              <span class="shnw-ph-wrap"><a href="tel:0000000000" class="sh-ph" aria-label="Phone Number"><span>000.000.0000</span></a></span>
+              <span class="shnw-email-wrap"><a href="mailto:info@hiwin.com" class="sh-email" aria-label="Email"><span>Email</span></a></span>
+              <span class="shnw-search-wrap"><a class="sh-ico-search search-link" target="_blank" href="#" aria-label="Search Icon"><span>Search</span></a></span>
+             </div>
+          </div>
+          <div class="sh-top-nav-wrap clearfix">
+          <a href="patterns.html" class="site-logo" aria-label="Hiwin Corporation"><img src="static/img/MC-Final.png" alt="Umar Nisar Automobiles" title="Umar Nisar Automobiles"></a>       
+          {% include "Navbar/navbar.html" %}
+          </div>
+          </div>
+          <div class="sh-utility-nav-moblie">
+            <span class="sh-icons"><a href="#menu" class="sh-ico-menu menu-link" aria-label="Menu Icon"><span>Menu</span></a></span>
+            <span><a href="mailto:info@test.com" class="sh-email" aria-label="Email Address"><span>Email</span></a></span>
+            <span><a href="tel:0000000000" class="sh-ph" aria-label="Phone Number"><span>Phone</span></a></span>
+            <span><a class="sh-ico-search search-link" target="_blank" href="#" aria-label="Search Icon"><span>Search</span></a></span>
+            <span><a href="" class="rfq-cta btn">Book Now</a></span>
+          </div>
+        </div><!--inner-wrap END-->
+      </header>
+
+
+      
+      <!--Site Intro Starts-->
+      <section class="site-intro">
+       <div class="si-slider">
+         <div class="si-item"><img src="static/img/nav-5.png" alt="" title=""></div>
+         <div class="si-item"><img src="static/img/nav-6.png" alt="" title=""></div>
+         <div class="si-item"><img src="static/img/nav-10.png" alt="" title=""></div>
+         <div class="si-item"><img src="static/img/nav-6.png" alt="" title=""></div>
+       </div>
+      </section>
+      <!--Site Intro Ends-->
+      <section class="aum-wrap">
+      </section>
+    </div>
+    
+
+    
+    <!-- site-header-wrap END -->
+   
+  
+    
+    {% include "section_code/videomodel.html" %}
+
+    {% include "section_code/scrollimg.html" %}
+    
+      <section class="clients-module">
+        
+        <span class="cl-bg">MC TOOLS</span>
+        <div class="inner-wrap">
+          <div class="clm-wrap">
+          <h2 class="clm-header">Mining & Construction Tools</h2>
+          <div class="cm-slider">
+            <div class="clm-item">
+              <p class="cmi-designation">High Quality</p>
+              <p>High-quality products go through rigorous quality control. The customer satisfaction is the most important to us.</p>
+            </div>
+            <div class="clm-item">
+              <p class="cmi-designation">Fast Delivery</p>
+              <p>Warehouse in different continents to help with faster and cost-saving deliveries </p>
+              
+            </div>
+            <div class="clm-item">
+              <p class="cmi-designation">Best Service</p>
+              <p>Best after sale support, Knowledgable representatives available all hours to help customers.</p>
+             
+            </div>
+
+        </div>  
+      </div>
+    </div>
+      </section>
+      
+      
+       
+     
+      <!--Full width cta module start-->
+     
+      <!--Full width cta module end-->
+    </section>
+
+    {% include "section_code/infinityimg_sli.html" %}
+    <!--Site Footer-->
+    <footer class="site-footer" role="contentinfo">
+        {% include "footer.html" %}
+    </footer>
+  </div><!--site-wrap END -->
+ 
+  <!-- <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?ver=1.10.2'></script> -->
+  <script src="/static/js/vendor/jquery-1.10.2.min.js"></script>
+  <script src="/static/js/production.min.js"></script>
+</body>
+
+</html>

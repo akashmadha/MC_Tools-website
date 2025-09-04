@@ -1,0 +1,30 @@
+ <!--Site Nav-->
+ <div class="site-nav-container">
+    <div class="snc-header">
+      <a href="#" class="close-menu menu-link" aria-label="Close Menu">Close</a>
+    </div>
+    <nav class="site-nav" role="navigation">
+      <ul class="sn-level-1">
+        <li class="sn-li-l1 menu-item-has-children">
+          <a href="#"><span>Home</span></a>
+        </li>
+        
+        <li class="sn-li-l1 menu-item-has-children">
+          <a href="{% url 'mctoolApp:products' %}"><span>Products</span></a>
+        </li>
+        <li class="sn-li-l1 menu-item-has-children">
+          <a href="#"><span>Category</span></a>
+        </li>
+        <li class="sn-li-l1 menu-item-has-children">
+          <a href="{% url 'mctoolApp:product_list' %}"><span>About us</span></a>
+        </li>
+        <li class="sn-li-l1">
+          <a href="{% url 'mctoolApp:Faqpage' %}"><span>FAQ</span></a>
+        </li>
+        <li class="sn-li-l1 menu-item-has-children">
+          <a href=""><span>Contact Us</span></a>
+        </li>
+      </ul>
+    </nav>
+  </div><!-- site-nav-container END-->
+

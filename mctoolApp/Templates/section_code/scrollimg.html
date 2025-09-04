@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Section Styling */
+        section {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        section:nth-of-type(odd) {
+            background-color: #f0f0f0;
+        }
+
+        section:nth-of-type(even) {
+            background-color: #ffffff;
+        }
+
+        section.horizontal {
+            overflow-x: hidden;
+        }
+
+        /* Pin and Animation Wrapping */
+        section.horizontal .pin-wrap,
+        section.horizontal .animation-wrap {
+            display: flex;
+            position: relative;
+            z-index: 1;
+            height: 100vh;
+        }
+
+        /* Item Styling */
+        section.horizontal .item {
+            position: relative;
+            padding: 1em 1em;
+            flex: 0 0 21.35em;
+            height: calc(80vh - 1em);
+            display: flex;
+            align-items: center;
+            line-height: 1.7;
+            font-size: 1.1em;
+            user-select: none;
+            border-right: 1px solid rgba(0, 0, 0, 0.06);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Unique Backgrounds */
+        .item:nth-child(1) { background-image: url('static/img/mc-1.WEBP'); }
+        .item:nth-child(2) { background-image: url('static/img/mc-2.jpg'); }
+        .item:nth-child(3) { background-image: url('static/img/mc-3.jpg'); }
+        .item:nth-child(4) { background-image: url('static/img/mc-4.jpg'); }
+        .item:nth-child(5) { background-image: url('static/img/mc-5.WEBP'); }
+        .item:nth-child(6) { background-image: url('static/img/mc-6.jpg'); }
+        .item:nth-child(7) { background-image: url('static/img/mc-7.WEBP'); }
+        .item:nth-child(8) { background-image: url('static/img/mc-8.WEBP'); }
+        .item:nth-child(9) { background-image: url('static/img/mc-9.WEBP'); }
+        .item:nth-child(10) { background-image: url('static/img/mc-11.jpg'); }
+
+        /* Scroll Animation Settings */
+        section.horizontal .animation-wrap.to-right {
+            counter-reset: item;
+        }
+
+        section.horizontal .animation-wrap.to-left {
+            counter-reset: item 11;
+        }
+
+        .to-right {
+            transform: translate(0em, 0em);
+            left: 1.5em;
+            top: 10.55em;
+            margin: 0em;
+            max-width: 10.31em;
+            width: 40.31em;
+            max-height: 34.44em;
+            height: 9.44em;
+            padding: 0em;
+        }
+
+        /* Media Query for Smaller Screens */
+        @media (max-width: 768px) {
+            section.horizontal .item {
+                flex: 0 0 100%;
+                height: 100%;
+        padding: 1.25em;
+        font-size: 1em;
+        max-height: 20em;
+      span{
+        font-size: 0.5em;
+      }
+            }
+    
+            section.horizontal .pin-wrap,
+            section.horizontal .animation-wrap {
+                flex-direction: column;
+            }
+        }
+        .to-right span{
+            color: #000;
+        }
+        .horizontal{
+            overflow: hidden;
+            box-shadow: 0 3px 16px 10px #333;
+            margin-bottom: 3em;
+        }
+        @media (max-width: 768px) {
+            .animation-wrap {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+<section class="horizontal">
+    <div class="Scroll-ani">
+    <div class="pin-wrap">
+        <div class="animation-wrap to-right">
+            <div class="item"><span>CP 0112 concrete breaker is an ideal breaker where easy handling of the tool is a very important factor to complete the task. Though the tool is very light-weighted yet it with stands rough use in light construction work and plant maintenance. It has also got another model "CP 0112 EXT</span></div>
+            <div class="item"><span>CP 0112 concrete breaker is an ideal breaker where easy handling of the tool is a very important factor to complete the task. Though the tool is very light-weighted yet it with stands rough use in light construction work and plant maintenance. It has also got another model "CP 0112 EXT</span></div>
+            <div class="item"><span>CP 0112 concrete breaker is an ideal breaker where easy handling of the tool is a very important factor to complete the task. Though the tool is very light-weighted yet it with stands rough use in light construction work and plant maintenance. It has also got another model "CP 0112 EXT</span></div>
+            <div class="item"><span>CP 0112 concrete breaker is an ideal breaker where easy handling of the tool is a very important factor to complete the task. Though the tool is very light-weighted yet it with stands rough use in light construction work and plant maintenance. It has also got another model "CP 0112 EXT</span></div>
+            <div class="item"><span>CP 0112 concrete breaker is an ideal breaker where easy handling of the tool is a very important factor to complete the task. Though the tool is very light-weighted yet it with stands rough use in light construction work and plant maintenance. It has also got another model "CP 0112 EXT</span></div>
+            <div class="item"><span>CP 0112 concrete breaker is an ideal breaker where easy handling of the tool is a very important factor to complete the task. Though the tool is very light-weighted yet it with stands rough use in light construction work and plant maintenance. It has also got another model "CP 0112 EXT</span></div>
+            <div class="item"><span>CP 0112 concrete breaker is an ideal breaker where easy handling of the tool is a very important factor to complete the task. Though the tool is very light-weighted yet it with stands rough use in light construction work and plant maintenance. It has also got another model "CP 0112 EXT</span></div>
+            <div class="item"><span>CP 0112 concrete breaker is an ideal breaker where easy handling of the tool is a very important factor to complete the task. Though the tool is very light-weighted yet it with stands rough use in light construction work and plant maintenance. It has also got another model "CP 0112 EXT</span></div>
+            <div class="item"><span>CP 0112 concrete breaker is an ideal breaker where easy handling of the tool is a very important factor to complete the task. Though the tool is very light-weighted yet it with stands rough use in light construction work and plant maintenance. It has also got another model "CP 0112 EXT</span></div>
+            <div class="item"><span>CP 0112 concrete breaker is an ideal breaker where easy handling of the tool is a very important factor to complete the task. Though the tool is very light-weighted yet it with stands rough use in light construction work and plant maintenance. It has also got another model "CP 0112 EXT</span></div>
+        </div>
+    </div>
+</div>
+</section>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const horizontalSections = gsap.utils.toArray('section.horizontal');
+
+    horizontalSections.forEach(function (sec) {	
+        var thisPinWrap = sec.querySelector('.pin-wrap');
+        var thisAnimWrap = thisPinWrap.querySelector('.animation-wrap');
+      
+        var getToValue = () => -(thisAnimWrap.scrollWidth - window.innerWidth); 
+
+        gsap.fromTo(thisAnimWrap, { 
+            x: () => thisAnimWrap.classList.contains('to-right') ? 0 : getToValue()
+        }, { 
+            x: () => thisAnimWrap.classList.contains('to-right') ? getToValue() : 0, 
+            ease: "none",
+            scrollTrigger: {
+                trigger: sec,		
+                start: "top top",
+                end: () => "+=" + (thisAnimWrap.scrollWidth - window.innerWidth),
+                pin: thisPinWrap,
+                invalidateOnRefresh: true,
+                scrub: true,
+            }
+        });
+    });
+</script>
+
+</body>
+</html> 
+

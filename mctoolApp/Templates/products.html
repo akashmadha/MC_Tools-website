@@ -1,0 +1,224 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paving Breaker</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+        }
+        /* Side Filter Styles */
+        .side-filter {
+            width: 250px;
+            background-color: #282c34;
+            color: #fff;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        }
+        .side-filter h3 {
+            padding: 20px;
+            font-size: 24px;
+            background-color: #007bff;
+            margin: 0;
+            text-align: center;
+        }
+        .side-filter ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .side-filter li {
+            padding: 15px 20px;
+            border-bottom: 1px solid #444;
+            cursor: pointer;
+        }
+        .side-filter li:hover {
+            background-color: #007bff;
+        }
+        .side-filter .expandable {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .side-filter .expandable span {
+            font-size: 14px;
+        }
+        .side-filter .sub-list {
+            display: none;
+            padding-left: 20px;
+        }
+        .side-filter .sub-list li {
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        /* Content Section */
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .bmw-model-1 {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #fff;
+        }
+        .bmw-model-1 img {
+            max-width: 100%;
+            height: auto;
+        }
+        .more-info {
+            display: none;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+
+        /* Modal Styling */
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        #myForm {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 400px;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Side filter -->    
+    <div class="side-filter">
+        <h3>Product categories</h3>
+        <ul>
+            
+            <li class="filter-btn" data-filter="paving-breaker"><a href="{% url 'mctoolApp:pavingb_list' %}">Paving Breaker</a></li>
+            <li class="filter-btn" data-filter="jackleg"><a href="{% url 'mctoolApp:product_name' %}">Jackleg Drill</a></li>
+            <li class="filter-btn" data-filter="jackleg"><a href="{% url 'mctoolApp:proname' %}">Jackleg</a></li>
+            <li class="filter-btn expandable" data-filter="dth">
+                DTH Hammers <span>+</span>
+            </li>
+            <ul class="sub-list dth-hammers">
+                <li>Add More Options...</li>
+            </ul>
+            <li class="filter-btn expandable" data-filter="spare">
+                Spare Parts <span>+</span>
+            </li>
+            <ul class="sub-list spare-parts">
+                <li>Show Spare Parts Details...</li>
+            </ul>
+            <li class="filter-btn" data-filter="rotary">Rotary Drill</li>
+            <li class="filter-btn" data-filter="accessories">Accessories</li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <section class="content">
+        <div class="bmw-container">
+            {% for i in pl %}
+            <div class="bmw-model-1 {{ i.category }}">
+                <img src="{{ i.img.url }}" alt="{{ i.product_name }}">
+                <p class="model-name">{{ i.product_name }}</p>
+                <div class="two-cars-button">
+                    <button class="learn-more">Learn More</button>
+                    <a href="#" class="add-to-cart">Get a Quote</a>
+                </div>
+                <div class="more-info">
+                    <p>{{ i.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+<!-- Modal form -->
+<div id="modal">
+    <div id="myForm">
+        <span class="close">&times;</span>
+        <form action="https://formspree.io/f/xwpeboja" method="POST">
+            <h2>Contact Me!</h2>
+            <input type="text" name="fullname" placeholder="Full Name" required>
+            <input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9]{10}" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <textarea name="message" placeholder="Your message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</div>
+
+<!-- Include jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Show/Hide Sub-list
+        $(".expandable").click(function () {
+            var sublist = $(this).next(".sub-list");
+            var span = $(this).find("span");
+            sublist.slideToggle();
+            span.text(sublist.is(":visible") ? "-" : "+");
+        });
+
+        // Filter functionality
+        $(".filter-btn").click(function () {
+            var filter = $(this).data("filter");
+            if (filter === "all") {
+                $(".bmw-model-1").show();
+            } else {
+                $(".bmw-model-1").hide();
+                $("." + filter).show();
+            }
+        });
+
+        // Learn More Toggle
+        $(".learn-more").click(function () {
+            var moreInfo = $(this).closest(".bmw-model-1").find(".more-info");
+            moreInfo.slideToggle();
+            $(this).text(moreInfo.is(":visible") ? "Show Less" : "Learn More");
+        });
+
+        // Modal functionality
+        $(".add-to-cart").click(function (event) {
+            event.preventDefault();
+            $("#modal").fadeIn();
+        });
+        $(".close").click(function () {
+            $("#modal").fadeOut();
+        });
+        $(window).click(function (event) {
+            if (event.target.id === "modal") {
+                $("#modal").fadeOut();
+            }
+        });
+    });
+</script>
+</body>
+</html>

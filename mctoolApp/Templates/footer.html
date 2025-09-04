@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Footer</title>
+    <style>
+        .footer {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+            border-top: 1px solid #555;
+        }
+
+        .footer-section {
+            flex: 1 1 20%;
+            margin: 10px;
+            min-width: 200px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .visit-us {
+            text-align: left;
+        }
+
+        .visit-us button {
+            background: none;
+            border: 1px solid #fff;
+            padding: 10px 20px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .visit-us button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .bottom-links {
+            text-align: center;
+            padding: 10px 0;
+            border-top: 1px solid #555;
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section {
+                text-align: center;
+            }
+        }
+        h3{
+            color: #aca8a8;
+            text-transform: uppercase;
+           
+        }
+.mc-animation {
+  position: relative;
+  display: inline-block;
+}
+
+.mc-animation::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  
+  left: 0;
+  background-color: #fff;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out;
+}
+.mc-animation:hover::after {
+  visibility: visible;
+  width: 100%;
+}
+    </style>
+</head>
+<body>
+    <footer class="footer">
+        <div class="footer-section">
+            <h3 class="mc-animation">Construction Tools</h3>
+            <ul>
+                <li><a href="#">Paving Breaker</a></li>
+                <li><a href="#">Rivet Buster</a></li>
+                <li><a href="#">Chipping Hammer</a></li>
+                <li><a href="#">4 Bolt Chipping Hammer</a></li>
+                <li><a href="#">Clay Digger</a></li>
+                <li><a href="#">Rotary Drill</a></li>
+                <li><a href="#">Pick Hammer</a></li>
+                <li><a href="#">Hand Tools</a></li>
+                <li><a href="#">Scabbler</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3 class="mc-animation">Mining Tools</h3>
+            <ul>
+                <li><a href="#">Sinker Drill</a></li>
+                <li><a href="#">Jackleg / Pusherleg Drill</a></li>
+                <li><a href="#">Stoper Drill</a></li>
+                <li><a href="#">Pneumatic Drifter</a></li>
+                <li><a href="#">Simba Junior</a></li>
+                <li><a href="#">DTH Hammer</a></li>
+                <li><a href="#">Wagon Drill</a></li>
+                <li><a href="#">Jackleg / Pusherleg</a></li>
+                <li><a href="#">Wire Saw Machine</a></li>
+                <li><a href="#">Slim Drill</a></li>
+                <li><a href="#">Crawler Drill</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3 class="mc-animation">Construction Tool Parts</h3>
+            <ul>
+                <li><a href="#">Paving Breaker Parts</a></li>
+                <li><a href="#">Rivet Buster Parts</a></li>
+                <li><a href="#">Chipping Hammer Parts</a></li>
+                <li><a href="#">4 Bolt Chipping Hammer Parts</a></li>
+                <li><a href="#">Clay Digger Parts</a></li>
+                <li><a href="#">Rotary Drill Parts</a></li>
+                <li><a href="#">Pick Hammer Parts</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3 class="mc-animation">Mining Tool Parts</h3>
+            <ul>
+                <li><a href="#">Sinker Drill Parts</a></li>
+                <li><a href="#">Jackleg / Pusherleg Drill Parts</a></li>
+                <li><a href="#">Stoper Drill Parts</a></li>
+                <li><a href="#">Pneumatic Drifter Parts</a></li>
+                <li><a href="#">Clay Digger Parts</a></li>
+                <li><a href="#">Wagon Drill Parts</a></li>
+            </ul>
+        </div>
+        <div class="footer-section visit-us">
+            <h3 class="mc-animation">VISIT US</h3>
+            <p>Frohnradstraße 19, 63768<br>Hösbach, Germany</p>
+            <button>GET DIRECTIONS</button>
+        </div>
+        <div class="footer-section">
+            <h3 class="mc-animation">DISCOVER OUR STORES</h3>
+            <button>Hösbach Headquarters</button>
+        </div>
+        <div class="footer-section">
+            <h3 class="mc-animation">CONTACT</h3>
+            <button>WRITE US A MESSAGE</button>
+        </div>
+   
+    <div class="bottom-links">
+        <p>IMPRINT | TERMS OF SERVICE | CANCELLATION POLICY | PRIVACY POLICY | COOKIE PREFERENCES</p>
+        <div class="social-icons">
+   
+        </div>
+    </div>
+   
+
+</footer>
+</body>
+</html>

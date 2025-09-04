@@ -1,0 +1,196 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RMT 1230 Specifications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #009fdb;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .image-section {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Thumbnail section */
+        .thumbnail-section {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .thumbnail-section img {
+            width: 80px;
+            height: auto;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            transition: border 0.3s ease, transform 0.3s ease;
+        }
+
+        .thumbnail-section img:hover {
+            border: 2px solid #ff0000;
+            transform: scale(1.1);
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #009fdb;
+            color: white;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">RMT 1230 Specifications</div>
+   
+        <!-- Main Image Section -->
+        <div class="image-section">
+            <!-- Add an ID to the main image so it can be dynamically updated by JavaScript -->
+            <img id="mainImage" src="{{ pl.image.url }}" alt="{{ pl.product_name }}">
+        </div>
+       
+        <div class="thumbnail-section">
+            {% for i in ps %}
+                <img src="{{ i.image.url }}" alt="Specification {{ forloop.counter }}" onmouseover="changeImage(this)">
+                {% endfor %} 
+        </div>
+       
+    {% for i in ps %}
+        <!-- Table Content -->
+        <div class="content">
+            
+            <table>
+                <tr>
+                    <th>Specification</th>
+                    <th>Metric</th>
+                    <th>Imperial</th>
+                </tr>
+                <tr>
+                    
+                    <th>Weight with silencer</th>
+                    <td>{{ i.metric_value }}</td>
+                    <td>{{ i.imperial_value }}</td>
+                   
+                </tr>
+                <tr>
+                    <th>Weight without silencer</th>
+                    <td>{{ specs.weight_without_silencer.metric }}</td>
+                    <td>{{ specs.weight_without_silencer.imperial }}</td>
+                </tr>
+                <tr>
+                    <th>Length</th>
+                    <td>{{ specs.length.metric }}</td>
+                    <td>{{ specs.length.imperial }}</td>
+                </tr>
+                <tr>
+                    <th>Air pressure</th>
+                    <td>{{ specs.air_pressure.metric }}</td>
+                    <td>{{ specs.air_pressure.imperial }}</td>
+                </tr>
+                <tr>
+                    <th>Air consumption</th>
+                    <td>{{ specs.air_consumption.metric }}</td>
+                    <td>{{ specs.air_consumption.imperial }}</td>
+                </tr>
+                <tr>
+                    <th>Blows per minute</th>
+                    <td colspan="2" class="highlight">{{ specs.blows_per_minute }}</td>
+                </tr>
+                <tr>
+                    <th>Piston dia</th>
+                    <td>{{ specs.piston_dia.metric }}</td>
+                    <td>{{ specs.piston_dia.imperial }}</td>
+                </tr>
+                <tr>
+                    <th>Piston stroke</th>
+                    <td>{{ specs.piston_stroke.metric }}</td>
+                    <td>{{ specs.piston_stroke.imperial }}</td>
+                </tr>
+                <tr>
+                    <th>Air inlet (NPT)</th>
+                    <td>{{ specs.air_inlet.metric }}</td>
+                    <td>{{ specs.air_inlet.imperial }}</td>
+                </tr>
+                <tr>
+                    <th>Shank size (standard)</th>
+                    <td>{{ specs.shank_size_standard.metric }}</td>
+                    <td>{{ specs.shank_size_standard.imperial }}</td>
+                </tr>
+                <tr>
+                    <th>Shank size (option)</th>
+                    <td>{{ specs.shank_size_option.metric }}</td>
+                    <td>{{ specs.shank_size_option.imperial }}</td>
+                </tr>
+                <tr>
+                    <th>Retainer type</th>
+                    <td colspan="2" class="highlight">{{ specs.retainer_type }}</td>
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+    {% endfor %}   
+    <script>
+        // Function to change the main image on hover
+        function changeImage(thumbnail) {
+            const mainImage = document.getElementById("mainImage");
+            mainImage.src = thumbnail.src;
+            mainImage.alt = thumbnail.alt;
+        }
+    </script>
+</body>
+</html>

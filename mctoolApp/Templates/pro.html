@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>product_name</title>
+</head>
+<body>
+    <h1>Products</h1>
+    <ul>
+        {% for i in pl %}
+            <li>
+                <img src="{{ i.image.url }}" alt="{{ i.product_name }}">
+                <a href="{% url 'mctoolApp:spe' i.id %}">{{ i.product_name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

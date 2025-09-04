@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ product.name }}</title>
+</head>
+<body>
+   
+    <h1>{{ pl.name }}</h1>
+    <img src="{{ pl.image.url }}" alt="{{ i.product_name }}">
+    <p><strong>Category:</strong> {{ pl.get_category_display }}</p>
+    <p><strong>Price:</strong> ${{ pl.price }}</p>
+    <p><strong>Description:</strong> {{ pl.description }}</p>
+  
+</body>
+</html>
