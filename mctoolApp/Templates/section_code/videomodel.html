@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,9 +18,7 @@
     }
 
     .case-studies {
-      width: 100%;
-      max-width: 1200px;
-      
+      width: 100%;  
     }
 
     .case-studies-cards {
@@ -143,7 +142,7 @@
     <div class="case-studies-cards">
       <!-- Card 1 -->
       <div class="case-studies-card">
-        <img class="card-header" src="static/img/mincon.WEBP" alt="Thumbnail 1">
+        <img class="card-header" src="{% static 'img/mincon.webp' %}" alt="Thumbnail 1">
         <button class="play-video-button" data-video="https://www.youtube.com/embed/lxIsW4If7pM">
           Play Video
         </button>
@@ -155,7 +154,7 @@
 
       <!-- Card 2 -->
       <div class="case-studies-card">
-        <img class="card-header" src="static/img/mincon.WEBP" alt="Thumbnail 2">
+        <img class="card-header" src="{% static 'img/mincon.webp' %}" alt="Thumbnail 2">
         <button class="play-video-button" data-video="https://www.youtube.com/embed/lxIsW4If7pM">
           Play Video
         </button>
@@ -169,8 +168,8 @@
      <!--Key Industries module start-->
  <div class="key-industries-module">
     <div class="kim-image-bg">
-      <div class="kim-bg1" style="background-image: url(static/img/SPARE-PARTS.png);"></div>
-      <div class="kim-bg2" style="background-image: url(static/img/ACCEESSORIES.png);"></div>
+      <div class="kim-bg1" style="background-image: url('{% static "img/SPARE-PARTS.png" %}')"></div>
+      <div class="kim-bg2" style="background-image: url('{% static "img/ACCEESSORIES.png" %}')"></div>
     </div>
     <div class="inner-wrap">
       <div class="kim-content-wrap">

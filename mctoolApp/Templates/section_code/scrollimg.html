@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,15 +55,15 @@
         }
 
         /* Unique Backgrounds */
-        .item:nth-child(1) { background-image: url('static/img/mc-1.WEBP'); }
+        .item:nth-child(1) { background-image: url('{% static "img/mc-1.webp" %}'); }
         .item:nth-child(2) { background-image: url('static/img/mc-2.jpg'); }
         .item:nth-child(3) { background-image: url('static/img/mc-3.jpg'); }
         .item:nth-child(4) { background-image: url('static/img/mc-4.jpg'); }
-        .item:nth-child(5) { background-image: url('static/img/mc-5.WEBP'); }
+        .item:nth-child(5) { background-image: url('{% static "img/mc-5.webp" %}'); }
         .item:nth-child(6) { background-image: url('static/img/mc-6.jpg'); }
-        .item:nth-child(7) { background-image: url('static/img/mc-7.WEBP'); }
-        .item:nth-child(8) { background-image: url('static/img/mc-8.WEBP'); }
-        .item:nth-child(9) { background-image: url('static/img/mc-9.WEBP'); }
+        .item:nth-child(7) { background-image: url('{% static "img/mc-7.webp" %}'); }
+        .item:nth-child(8) { background-image: url('{% static "img/mc-8.webp" %}'); }
+        .item:nth-child(9) { background-image: url('{% static "img/mc-9.webp" %}'); }
         .item:nth-child(10) { background-image: url('static/img/mc-11.jpg'); }
 
         /* Scroll Animation Settings */
